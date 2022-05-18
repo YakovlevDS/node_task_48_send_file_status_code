@@ -1,12 +1,43 @@
-let nodePath = process.argv[0];
-let appPath = process.argv[1];
-let name = process.argv[2];
-let age = process.argv[3];
+// const express = require("express");
+// const app = express();
+ 
+// app.use((req, res)=> {
+//   res.send(`<!DOCTYPE html>
+//   <html>
+//   <head>
+//       <title>Главная</title>
+//       <meta charset="utf-8" />
+//   </head>
+//   <body>
+//       <h1>Главная страница</h1>
+//       <h3>Привет, Express</h3>
+//   </body>
+//   <html>`);
+// });
+// app.listen(3000);
+ 
 
-console.log("nodePath: " + nodePath);
-console.log("appPath: " + appPath);
-console.log();
-console.log("name: " + name);
-console.log("age: " + age);
+// solution 2 sendFile index.html
 
-// node app.js Tom 23
+
+// const express = require("express");
+// const app = express();
+ 
+// app.use(function (request, response) {
+//   response.sendFile(__dirname + "/index.html");
+// });
+ 
+// app.listen(3000);
+
+
+
+//! Отправка статусных кодов
+
+const express = require("express");
+const app = express();
+ 
+app.use("/home/foo/bar",function (request, response) {
+    response.status(404).send(`Ресурс не найден`);
+});
+ 
+app.listen(3000);
